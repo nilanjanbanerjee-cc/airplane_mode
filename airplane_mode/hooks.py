@@ -5,6 +5,14 @@ app_description = "A custom Frappe application for managing airplane-related inf
 app_email = "nilanjan.banerjee@codeclouds.net"
 app_license = "mit"
 
+scheduler_events = {
+    "monthly": [
+        "airplane_mode.tasks.send_rent_due_reminders"
+    ]
+}
+fixtures = [
+    "Shop Type"
+]
 # Apps
 # ------------------
 

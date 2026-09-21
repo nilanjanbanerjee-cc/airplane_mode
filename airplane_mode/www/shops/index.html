@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airport Shops</title>
+</head>
+
+<body>
+
+    <h1>Airport Shops</h1>
+
+    {% for shop in shops %}
+        <h2>
+            <a href="/shops/shop?name={{ shop.name | urlencode }}">
+                {{ shop.shop_name }}
+            </a>
+        </h2>
+
+        <p>Airport: {{ shop.airport }}</p>
+        <p>Shop Type: {{ shop.shop_type }}</p>
+        <p>Location: {{ shop.location }}</p>
+        <p>Status: {{ shop.status }}</p>
+
+        <hr>
+    {% endfor %}
+
+</body>
+</html>

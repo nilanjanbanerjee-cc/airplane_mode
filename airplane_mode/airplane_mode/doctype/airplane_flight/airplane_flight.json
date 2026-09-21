@@ -20,7 +20,9 @@
   "source_airport_code",
   "destination_airport_code",
   "is_published",
-  "route"
+  "route",
+  "crew_members",
+  "gate_number"
  ],
  "fields": [
   {
@@ -109,6 +111,18 @@
    "fieldname": "route",
    "fieldtype": "Data",
    "label": "Route"
+  },
+  {
+   "fieldname": "crew_members",
+   "fieldtype": "Table",
+   "label": "Crew Members",
+   "options": "Airplane Flight Crew"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "label": "Gate Number"
   }
  ],
  "grid_page_length": 50,
@@ -122,7 +136,7 @@
    "link_fieldname": "flight"
   }
  ],
- "modified": "2026-09-10 20:08:54.537799",
+ "modified": "2026-09-17 18:42:35.830871",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",

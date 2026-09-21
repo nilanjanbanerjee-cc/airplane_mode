@@ -24,6 +24,17 @@ class AirplaneTicket(Document):
 			frappe.throw("Status must be 'Boarded'.")	
 
 	def before_insert(self):
-		self.seat = f"{random.randint(1, 100)}{random.choice('ABCDE')}"	
+		flight = frappe.get_doc("Airplane Flight", self.flight)
+		airplane = frappe.get_doc("Airplane", flight.airplane)
+		self.gate_number = flight.gate_number
+		booked_tickets = frappe.db.count(
+			"Airplane Ticket",
+			{"flight": self.flight}
+		)
 
-				
+		if booked_tickets >= airplane.capacity:
+			frappe.throw(
+				f"No seats available for flight {self.flight}."
+			)
+
+		self.seat = f"{random.randint(1, 100)}{random.choice('ABCDE')}"
