@@ -33,7 +33,7 @@ def send_rent_due_reminders():
                 <p>Dear {tenant.tenant_name},</p>
 
                 <p>This is a reminder that the monthly rent of
-                <strong>₹{contract.monthly_rent}</strong>
+                <strong>₹{contract.monthly_rent if contract.monthly_rent else settings.default_rent_amount}</strong>
                 is due for shop <strong>{contract.shop}</strong>.</p>
 
                 <p>Thank you.</p>

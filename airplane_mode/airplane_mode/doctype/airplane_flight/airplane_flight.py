@@ -27,7 +27,6 @@ def update_ticket_gates(flight_name, gate_number):
             gate_number
         )
 
-    # CRITICAL: Background jobs require an explicit commit to save db changes
     frappe.db.commit()
 
 

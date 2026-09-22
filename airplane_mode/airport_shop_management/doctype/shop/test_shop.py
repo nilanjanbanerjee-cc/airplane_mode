@@ -18,7 +18,7 @@ class IntegrationTestShop(IntegrationTestCase):
 	def test_shop_creation(self):
 		shop = frappe.get_doc({
 			"doctype": "Shop",
-			"shop_name": "Test Airport Shop",
+			"shop_name": "Test Airport -For testing",
 			"shop_type": "Stall",
 			"location": "Terminal 1",
 			"size_sq_ft": 250,
@@ -28,6 +28,6 @@ class IntegrationTestShop(IntegrationTestCase):
 
 		shop.insert()
 
-		self.assertEqual(shop.shop_name, "Test Airport Shop")
+		self.assertEqual(shop.shop_name, "Test Airport -For testing")
 		self.assertEqual(shop.shop_type, "Stall")
 		self.assertEqual(shop.status, "Available")

@@ -9,7 +9,7 @@
   "lead_name",
   "email",
   "phone",
-  "interested_shop_type",
+  "interested_shop",
   "status",
   "notes"
  ],
@@ -32,12 +32,6 @@
    "label": "Phone"
   },
   {
-   "fieldname": "interested_shop_type",
-   "fieldtype": "Link",
-   "label": "Interested Shop Type",
-   "options": "Shop Type"
-  },
-  {
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -49,12 +43,18 @@
    "fieldname": "notes",
    "fieldtype": "Small Text",
    "label": "Notes"
+  },
+  {
+   "fieldname": "interested_shop",
+   "fieldtype": "Link",
+   "label": "Interested Shop",
+   "options": "Shop"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-18 14:41:05.138070",
+ "modified": "2026-09-22 14:36:28.472833",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Lead",
