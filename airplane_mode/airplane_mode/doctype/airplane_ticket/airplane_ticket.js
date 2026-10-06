@@ -15,6 +15,10 @@
 // 	},
 // });
 frappe.ui.form.on("Airplane Ticket", {
+    status(frm) {
+        set_seat_read_only(frm);
+    },
+
     refresh(frm) {
         frm.add_custom_button(__("Assign Seat"), () => {
             let d = new frappe.ui.Dialog({
@@ -38,3 +42,12 @@ frappe.ui.form.on("Airplane Ticket", {
         });
     }
 });
+function set_seat_read_only(frm) {
+    if (frm.doc.status === "Boarded") {
+        console.log("Setting seat field to read-only because status is 'Boarded'");
+        frm.set_df_property("seat", "read_only", 1);
+    } else {
+        frm.set_df_property("seat", "read_only", 0);
+    }
+}
+       

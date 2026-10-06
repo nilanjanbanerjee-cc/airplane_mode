@@ -83,19 +83,25 @@ def get_data() -> list[list]:
 
 	for airline in airlines:
 		airplanes = frappe.get_all(
-			"Airplane",
-			filters={
-				"airline": airline
-			},
-			pluck="name"
+        "Airplane",
+        filters={"airline": airline},
+        pluck="name"
 		)
+
+		if not airplanes:
+			data.append([airline, 0])
+			continue
+
 		flights = frappe.get_all(
 			"Airplane Flight",
-			filters={
-			"airplane": ["in", airplanes]
-			},
+			filters={"airplane": ["in", airplanes]},
 			pluck="name"
 		)
+
+		if not flights:
+			data.append([airline, 0])
+			continue
+		
 		tickets = frappe.get_all(
 			"Airplane Ticket",
 			filters={

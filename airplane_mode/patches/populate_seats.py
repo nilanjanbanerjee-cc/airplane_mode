@@ -10,5 +10,5 @@ def execute():
 
     for ticket in tickets:
         if not ticket.seat:
-            seat = f"{random.randint(1, 100)}{random.choice('ABCDE')}"
+            seat = f"{random.randint(1, 99)}{random.choice('ABCDE')}"
             frappe.db.set_value("Airplane Ticket", ticket.name, "seat", seat)

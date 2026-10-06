@@ -37,4 +37,4 @@ class AirplaneTicket(Document):
 				f"No seats available for flight {self.flight}."
 			)
 
-		self.seat = f"{random.randint(1, 100)}{random.choice('ABCDE')}"
+		self.seat = f"{random.randint(1, 99)}{random.choice('ABCDE')}"
