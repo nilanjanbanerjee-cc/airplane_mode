@@ -36,5 +36,12 @@ class AirplaneTicket(Document):
 			frappe.throw(
 				f"No seats available for flight {self.flight}."
 			)
-
-		self.seat = f"{random.randint(1, 99)}{random.choice('ABCDE')}"
+		while True:
+			seat_number = f"{random.randint(1, 99)}{random.choice('ABCDE')}"
+			if not frappe.db.exists(
+				"Airplane Ticket",
+				{"flight": self.flight, "seat": seat_number}
+			):
+				self.seat = seat_number
+				break
+		
